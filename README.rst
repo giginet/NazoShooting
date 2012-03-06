@@ -11,7 +11,7 @@
 ゲーム自体は@giginetがゼビウス、ドラゴンスピリット、ツインビー、ロックマンに影響を受けて開発されました。
 
 ====================
-Instration
+Installation
 ====================
 
 Install Ruby1.8.7 via Ruby Version Manager
