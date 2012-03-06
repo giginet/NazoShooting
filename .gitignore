@@ -1,0 +1,7 @@
+*.dll
+*.odg
+class.backup
+backup
+lib/rskit
+lib/ruby
+lib/sdl

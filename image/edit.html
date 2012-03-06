@@ -1,0 +1,382 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+
+<title>記事を書く - 5.1さらうどん</title>
+
+<link rel="shortcut icon" href="/images/wh_favicon.ico">
+<link rel="stylesheet" href="/css/global.css" type="text/css" media="all">
+<link rel="stylesheet" href="/css/diary-config.css?2009041602" type="text/css" media="all">
+<link rel="stylesheet" type="text/css" href="/gigi-net/style" />
+
+
+<script type="text/javascript"><!--
+//// for Benchmark
+//var bench = new Benchmark('d');
+//bench.mark('begin');
+
+var Hatena = {};
+Hatena.Diary = {
+    rkm: '02ooJI/E54dUUp+HRMCjmQ',
+    dusername: 'gigi-net',
+    categories: ['Diary','Think','FLASH','Game','Blog','Photo','Web','Movie','K-Fla','Neta','News','Mac','Program','Clip','Video','Baton','Book','Food','TV','PC','Gadget','Trivia','Anime','Prgoram','Plagger','NicoVideo','Firefox','iPhone','Music','JavaScript','Greasemonkey','DTM','C++','Ruby','Pogram','Travel','Twitter','Tech','Linux']
+}
+
+//-->
+</script>
+<script type="text/javascript" src="/js/Ten/Ten.js"></script>
+
+<script type="text/javascript" src="/js/prototype-1.4.0.js"></script>
+<script type="text/javascript" src="/js/cookie.js"></script>
+
+<script type="text/javascript" src="/js/splitter.js"></script>
+<script type="text/javascript" src="/js/preview.js"></script>
+
+<script type="text/javascript" src="/js/textinput_selection.js"></script>
+<script type="text/javascript" src="/js/diary_edit.js"></script>
+
+<script type="text/javascript" src="/js/myfoto.js"></script>
+<script type="text/javascript" src="/js/color_picker.js"></script>
+
+<script type="text/javascript" src="/js/listbox.js"></script>
+<script type="text/javascript" src="/js/category.js"></script>
+<script type="text/javascript" src="/js/fontsize.js"></script>
+
+<script type="text/javascript" src="/js/tooltip.0.2.js"></script>
+<script type="text/javascript" src="/js/edittips.js"></script>
+
+<script type="text/javascript" src="/js/local_storage.js"></script>
+<script type="text/javascript" src="/js/diary_backup.js"></script>
+
+<script type="text/javascript" src="/js/campaign.js"></script>
+<script type="text/javascript" src="/js/diary_minimumtext.js"></script>
+
+<script type="text/javascript" src="/js/input_file_to_text.js"></script>
+
+
+<script type="text/javascript"><!--
+if(typeof Hatena == 'undefined')
+    Hatena = {};
+if(typeof Hatena.Diary == 'undefined')
+    Hatena.Diary = {};
+Hatena.rkm = '02ooJI/E54dUUp+HRMCjmQ';
+Hatena.Diary.Author  = 'gigi-net';
+Hatena.Diary.Visitor = 'gigi-net';
+Hatena.Diary.Ownership = true;
+Hatena.Diary.Categories = ['Diary','Think','FLASH','Game','Blog','Photo','Web','Movie','K-Fla','Neta','News','Mac','Program','Clip','Video','Baton','Book','Food','TV','PC','Gadget','Trivia','Anime','Prgoram','Plagger','NicoVideo','Firefox','iPhone','Music','JavaScript','Greasemonkey','DTM','C++','Ruby','Pogram','Travel','Twitter','Tech','Linux'];
+Hatena.Diary.optionAvailable = false;
+Hatena.Diary.isPlusUser = false;
+//--></script>
+<script type="text/javascript" src="/f/js/fotouploader.js?v=1.33" charset="utf-8"></script>
+<script type="text/javascript" src="/js/edit_in_place.js?v=1.33"></script>
+
+
+<!-- script type="text/javascript" src="/js/showtips.js" charset="utf-8"></script -->
+
+</head>
+<body>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0" id="banner">
+<tr>
+<td bgcolor="#FFFFFF" nowrap><a href="http://www.hatena.ne.jp/"><img border="0" src="/images/hatena_wh.gif" width="104" height="40" alt="はてな" title="はてな"></a><a href="/"><img border="0" src="/images/diarywh.gif" width="60" height="40" alt="はてなダイアリー"></a><img border="0" src="/images/tri_wh.gif" width="15" height="40" usemap="#trimap" alt="tri"><map name="trimap"><area shape="rect" coords="1,10,15,25" href="http://b.hatena.ne.jp/gigi-net/" alt="はてなブックマーク" title="はてなブックマーク"><area shape="rect" coords="1,25,15,40" href="http://f.hatena.ne.jp/gigi-net/" alt="はてなフォトライフ" title="はてなフォトライフ"></map></td>
+<td align="right" bgcolor="#FFFFFF"><a href="http://www.hatena.ne.jp/"><img border="0" src="/images/hatenawh.gif" width="82" height="40" alt="はてな"></a></td>
+</tr>
+<tr>
+<td width="100%" bgcolor="#999999" colspan="3"><img border="0" src="/images/dot.gif" width="1" height="1" alt=""></td>
+</tr>
+<tr>
+<td width="100%" bgColor="#ffffff" colspan="3">
+<table cellSpacing="0" cellPadding="2" width="100%" border="0">
+<tbody>
+<tr>
+<td bgcolor="#FFFFFF" width="50%" nowrap><font color="#999999" size="2">&nbsp;ようこそ<a href="/gigi-net/" style="text-decoration:none; font-weight:100;"><font color="#999999">gigi-net</font></a>さん&nbsp;</font></td>
+<td bgcolor="#FFFFFF" nowrap align="center"><a href="/gigi-net/" style="text-decoration:none; font-weight:100;"><font size="2" color="#999999">ブログトップ</font></a></td>
+<td bgcolor="#FFFFFF" nowrap align="center"><a href="/gigi-net/archive" style="text-decoration:none; font-weight:100;"><font size="2" color="#999999">記事一覧</font></a></td>
+<td bgcolor="#FFFFFF" nowrap align="center"><a id="editlink" href="/gigi-net/#edit_in_place" style="text-decoration:none; font-weight:100;"><font size="2" color="#999999">記事を書く</font></a></td>
+<td bgcolor="#FFFFFF" nowrap align="center"><a href="/gigi-net/admin" style="text-decoration:none; font-weight:100;"><font size="2" color="#999999">管理</font></a></td>
+<td bgcolor="#FFFFFF" nowrap align="center"><a href="https://www.hatena.ne.jp/logout?backurl=http://d.hatena.ne.jp/" style="text-decoration:none; font-weight:100;"><font size="2" color="#999999">ログアウト</font></a></td>
+<td bgcolor="#FFFFFF" nowrap align="center"><a href="http://hatenadiary.g.hatena.ne.jp/" style="text-decoration:none; font-weight:100;"><font size="2" color="#999999">ヘルプ</font></a></td>
+</tr>
+</tbody>
+</table>
+
+</td>
+</tr>
+<tr>
+<td width="100%" bgcolor="#999999" colspan="3"><img border="0" src="/images/dot.gif" width="1" height="1" alt=""></td>
+</tr>
+</table>
+
+
+<script type="text/javascript">
+if(typeof(Ten) == "undefined") {
+  document.write('<scr', 'ipt type="text/javascript" src="/js/Ten.js"></scr', 'ipt>');
+}
+</script>
+<script type="text/javascript" src="/js/information.js"></script>
+<script type="text/javascript" src="/js/header_pin.js"></script>
+
+
+<div class="hatena-body" id="hatena-diary-edit">
+
+<div id="body">
+<div id="main" style="position:static">
+<div id="breadcrumbs"><a href="/gigi-net/">5.1さらうどん</a> &gt; <a href="/gigi-net/admin">ブログ管理ツール</a> &gt; 記事を書く</div>
+
+
+
+
+
+
+
+
+<form method="post" action="./edit" enctype="multipart/form-data" name="edit">
+<input type="hidden" name="dummy" value="1">
+<input type="hidden" name="mode" value="enter">
+<input type="hidden" name="rkm" value="02ooJI/E54dUUp+HRMCjmQ">
+<input type="hidden" name="timestamp" value="">
+
+
+<!---- TAB and PAGER ---->
+<div id="tabchange" class="config-body-edit">
+<div id="tab" class="pager-l" style="display:none;"><span id="edit-tab" onclick="Tab.onEditTabClick(event)">編集</span><span id="preview-tab" onclick="Tab.onPreviewTabClick(event)">プレビュー</span></div>
+<script type="text/javascript"><!--
+if (window.Tab) Tab.onLoad();
+//-->
+</script>
+
+<div class="pager-r"><a href="/gigi-net/edit?date=20100403">&lt;前の日</a></div>
+
+</div><!-- id="tabchange" -->
+
+<!---- EDIT-BODY (INNER TAB) ---->
+<div id="edit-body-container" class="box-curve-bar">
+<h2 id="diary-edit-header"><span class="title">
+<input name="year" size="5" value="2010" tabindex="1"> -
+<input name="month" size="3" value="04" tabindex="2"> -
+<input name="day" size="3" value="07" tabindex="3">
+<input name="title" size="50" value="" tabindex="4">
+<input type="submit" name="edit" value="保存する" tabindex="4">
+</span></h2>
+<div class="box-bg-de2">
+
+<span id="edit-buttons" style="display:none">
+<img src="/images/admin/markup_category.gif" alt="カテゴリー" title="カテゴリー" style="margin-right:5px;" onmousedown="CategorySelection.onFirstClick(event);" /><img src="/images/admin/markup_bold.gif" id="bold_button" alt="太字" title="太字" onmousedown="markupBold(); return false;" /><img src="/images/admin/markup_em.gif" alt="イタリック" title="イタリック" onmousedown="markupItalic(); return false;" /><img src="/images/admin/markup_del.gif" alt="削除部" title="削除部" onmousedown="markupHtml('del'); return false;" /><img src="/images/admin/markup_size.gif" alt="文字サイズ" title="文字サイズ" onmousedown="FontSizeSelection.onFirstClick(event)" /><img src="/images/admin/markup_color.gif" id="color_button" alt="文字色" title="文字色" style="margin-right:5px;" onmousedown="onColorButtonClick(event); return false;" /><img src="/images/admin/markup_keyword.gif" alt="キーワード" title="キーワード" onmousedown="markup('[[', ']]'); return false;" /><img src="/images/admin/markup_url.gif" alt="リンク" title="リンク" style=";margin-right:5px;" onmousedown="markupURL(); return false;" /><img src="/images/admin/markup_ul.gif" alt="リスト" title="リスト" onmousedown="makeList('-'); return false;" /><img src="/images/admin/markup_ol.gif" alt="数字リスト" title="数字リスト" style="margin-right:5px;" onmousedown="makeList('+'); return false;" /><img src="/images/admin/markup_quote.gif" alt="引用" title="引用" onmousedown="markupQuote(); return false;" /><img src="/images/admin/markup_footnote.gif" alt="脚注" title="脚注" style="margin-right:1px;" onmousedown="markupFootnote(); return false;" /></span>
+
+<span id="edit_in_place_replace">
+<img src="/images/admin/markup_image.gif" alt="フォトライフ" title="フォトライフ" onmousedown="Myfoto.onFirstClick(event);" />
+<span id="hamazou">
+<script type="text/javascript"><!--
+document.write('<input type="button" onclick="javascript:window.open(\'./hamazou/?can_review=1\',\'_blank\',\'width=560,height=600,resizable=1,scrollbars=1,status=1\');return false;"  value="商品を紹介" />');
+//--></script>
+</span>
+
+<span id="hamazou">
+<script type="text/javascript"><!--
+document.write('<input type="button" onclick="javascript:window.open(\'./videoki/\',\'_blank\',\'width=460,height=600,resizable=1,scrollbars=1,status=1\');return false;"  value="動画を紹介" />');
+//-->
+</script>
+</span>
+
+<span id="hamazou">
+<script type="text/javascript"><!--
+document.write('<input type="button" onclick="javascript:window.open(\'./tabezou/\',\'_blank\',\'width=560,height=600,resizable=1,scrollbars=1,status=1\');return false;"  value="レストランを紹介" />');
+//-->
+</script>
+</span>
+</span>
+
+<script type="text/javascript"><!--
+$('edit-buttons').style.display = '';
+//-->
+</script>
+
+<script type="text/javascript"><!--
+document.write('<span id="input-title"><img src="/images/help-popup.gif" width="15" height="15" alt="入力支援ボタンについて" title="入力支援ボタンについて" class="by"></span>');
+//--></script>
+<div class="tooltip for-input-title" style="display:none"><p>入力支援ボタンを使うと、選択した部分の文字列に色をつけたり、フォントサイズを大きくしたりすることができます。また本文中で写真を貼り付けたり、商品を紹介したいときもこのボタンを使います。</p>
+    <p>より詳しくは、<a target="_blank" href="http://hatenadiary.g.hatena.ne.jp/keyword/HTML%e3%82%84%e8%a8%98%e6%b3%95%e3%81%ae%e5%85%a5%e5%8a%9b%e6%94%af%e6%8f%b4%e3%83%9c%e3%82%bf%e3%83%b3%e3%82%92%e4%bd%bf%e3%81%86?kid=183">はてなダイアリーのヘルプ</a>をご覧ください。</p></div>
+
+</div>
+
+<div class="curve-middle">
+<div style="width:100%">
+<textarea name="body" tabindex="5" id="textarea-edit" rows="25" cols="70"></textarea>
+</div>
+<div id="body-splitter" class="spritter"></div>
+<script type="text/javascript"><!--
+if (window.Splitter) {
+    new Splitter('body-splitter',
+                 'textarea-edit',
+                 100);
+}
+//-->
+</script>
+<!--
+<div style="margin:10px 0;">
+<input type="submit" name="preview" value="確認する" tabindex="6">
+<input type="submit" name="edit" value="この内容を登録する" tabindex="6">
+</div>
+-->
+<p class="font-s">
+※「*」で始まる行は見出しに、「-」や「+」で始まる行はリストになります → <a href="http://hatenadiary.g.hatena.ne.jp/keyword/%e3%81%af%e3%81%a6%e3%81%aa%e8%a8%98%e6%b3%95%e4%b8%80%e8%a6%a7" target="_blank" class="out">はてな記法一覧</a><br>
+※ [[ ... ]] で単語を囲むとキーワードになります → <a href="http://hatenadiary.g.hatena.ne.jp/keyword/%E7%B7%A8%E9%9B%86%E6%99%82%E3%81%AB%E5%A5%BD%E3%81%8D%E3%81%AA%E8%A8%80%E8%91%89%E3%82%92%E3%82%AD%E3%83%BC%E3%83%AF%E3%83%BC%E3%83%89%E3%81%AB%E3%81%99%E3%82%8B" target="_blank" class="out">詳しく</a>
+</p>
+
+<div style="width:100%;">
+<table class="table-config">
+<tr>
+<th>画像の投稿 <script type="text/javascript"><!--
+document.write('<span id="input-upload"><img src="/images/help-popup.gif" width="15" height="15" alt="画像アップロードについて" title="画像アップロードについて" class="by"></span>');
+//--></script> <br><div class="tooltip for-input-upload" style="display:none"><p>はてなダイアリーには1日1枚、最大5MBまでのJPEG,GIF,PNG画像を登録できます。アップした画像は150px(はてなダイアリープラス利用の場合は300px)に自動的にサイズ変更されます。</p><p>画像アップロードに関する詳しい内容は、<a href="http://hatenadiary.g.hatena.ne.jp/keyword/%e3%81%9d%e3%81%ae%e6%97%a5%e3%81%ae%e7%94%bb%e5%83%8f%e3%82%92%e7%99%bb%e9%8c%b2%e3%81%99%e3%82%8b">はてなダイアリーのヘルプ</a>をご参照ください。</p><p><a target="_blank" href="http://f.hatena.ne.jp/">フォトライフ</a>を利用することで、1日の日記内に複数の写真を貼ることもできます。</p></div></th>
+<td>
+<div style="padding:0.5em;">
+<h3>今日の1枚</h3>
+<input  type="file" name="image" size="25" tabindex="6"> <input type="text" name="imagetitle" size="25" value="" tabindex="7">
+<div class="note">※JPEG,GIF,PNG,BMP画像を登録できます。画像のタイトルも指定できます。</div>
+</div>
+<div class="box-curve">
+<span class="curve-top"><span></span></span>
+<div class="curve-middle">
+<h3>たくさんの画像を貼り付けたい場合、フォトライフをお使いください。</h3>
+<div class="note">※<a href="http://f.hatena.ne.jp/" target="_blank">はてなフォトライフ</a>は、はてなの提供する写真共有サービスです。</div>
+<input id="upload-for-fotolife" type="button" onclick="javascript:window.open('http://f.hatena.ne.jp/gigi-net/upload?redirecturl=http://d.hatena.ne.jp/gigi-net/fotolife','_blank','width=450,height=450,resizable=1,scrollbars=1,status=1');return false;" value="はてなフォトライフに画像を投稿">
+
+
+</div>
+<span class="curve-bottom"><span></span></span>
+</div>
+</td><!-- IMAGEFILE --><!-- PREVIEWIMAGEURL -->
+</tr>
+
+<tr><th>トラックバックURL <script type="text/javascript"><!--
+document.write('<span id="input-sendtrackback"><img src="/images/help-popup.gif" width="15" height="15" alt="トラックバックURLについて" title="トラックバックURLについて" class="by"></span>');
+//--></script> <br><div class="tooltip for-input-sendtrackback" style="display:none"><p>トラックバックURLをここに入力してください。</p><p>トラックバックに関する詳しい内容は、<a href="http://hatenadiary.g.hatena.ne.jp/keyword/%e3%83%88%e3%83%a9%e3%83%83%e3%82%af%e3%83%90%e3%83%83%e3%82%af%e3%82%92%e9%80%81%e4%bf%a1%e3%81%99%e3%82%8b">はてなダイアリーのヘルプ</a>をご参照ください。</p></div></th>
+<td>
+
+
+
+<textarea name="tburl" id="textarea-tburl" tabindex="8"></textarea></td>
+
+</tr>
+</table>
+</div>
+
+<div id="backup">
+</div>
+</div><!-- class="curve-middle" -->
+</div><!-- id="edit-body-container" -->
+
+<!-- PREVIEW (INNER TAB) -->
+<div id="preview-container" class="box-curve-bar" style="display:none;">
+  <div id="diary-preview-header"></div>
+  <div class="curve-middle">
+  <div style="width:100%;">
+  <iframe id="preview-frame" name="preview-frame" frameborder="0" border="0" framespacing="0"></iframe>
+  <div id="preview-splitter" class="spritter"></div>
+  </div>
+  </div><!-- class="curve-middle" -->
+</div><!-- id="preview-container" -->
+
+
+<!--共通ボタン-->
+<div class="box-curve-bar">
+<div class="curve-middle">
+<div class="box-l" style="padding-top:20px"> 
+<input type="submit" name="preview" value="確認する" tabindex="9">
+<input type="submit" name="edit" value="保存する" tabindex="10">
+<span class="foot-menu font-ss"><input type="checkbox" name="trivial" value="1"  tabindex="11" id="trivial"><label for="trivial">ちょっとした更新</label><script type="text/javascript"><!--
+document.write('<span id="input-trivial"><img src="/images/help-popup.gif" width="15" height="15" alt="ちょっとした更新について" title="ちょっとした更新について" class="by"></span>');
+//--></script>
+ | <a href="/gigi-net/draftlist">下書き一覧</a>
+</span>
+<input type="submit" name="draft" value="下書き保存" tabindex="12">
+<br><div class="tooltip for-input-trivial" style="display:none"><p>ちょっとした更新をすると外部サイトにpingが送信されず、はてなアンテナに即時反映されません。</p><p>ちょっとした更新に関する詳しい内容は、<a href="http://hatenadiary.g.hatena.ne.jp/keyword/%e3%81%a1%e3%82%87%e3%81%a3%e3%81%a8%e3%81%97%e3%81%9f%e6%9b%b4%e6%96%b0%e3%82%92%e3%81%99%e3%82%8b">はてなダイアリーのヘルプ</a>をご参照ください。</p></div>
+</div>
+</div><!-- class="curve-middle" -->
+<span class="curve-bottom"><span></span></span>
+</div><!-- id="edit-body-container" -->
+
+
+</form>
+
+
+
+
+</div><!-- main -->
+<div id="sidebar">
+<ul class="list-configmenu">
+<li class="select" id="list-top-select"><a class="icon-edit" href="/gigi-net/#edit_in_place" title="記事を書く">記事を書く</a>
+</li>
+<li><a class="icon-archive" href="/gigi-net/archive?mode=edit" title="記事一覧">記事一覧</a></li>
+<li><a class="icon-draft" href="/gigi-net/draftlist" title="下書き一覧">下書き一覧</a></li>
+<li><a class="icon-comment" href="/gigi-net/commentlist" title="コメント一覧">コメント一覧</a></li>
+<!--<li><a class="icon-mycomment" href="/gigi-net/mycommentlist" title="マイコメント一覧">マイコメント一覧</a></li>-->
+<li><a class="icon-trackback" href="/gigi-net/trackbacklist" title="トラックバック一覧">トラックバック一覧</a></li>
+
+<li><a class="icon-keyword" href="/gigi-net/configword" title="キーワードを作る">キーワード</a>
+</li>
+<li><a class="icon-design" href="/gigi-net/designdetail" title="デザイン">デザイン</a>
+</li>
+<li><a class="icon-config" href="/gigi-net/config" title="設定">設定</a>
+</li>
+<li><a class="icon-option" href="/gigi-net/option" title="プラス">プラス<span style="font-size:70%;">（有料オプション）</span></a>
+</li>
+
+<li id="list-bottom"><a class="icon-port" href="/gigi-net/port" title="データの管理">データの管理</a>
+</li>
+</ul>
+
+<ul class="list-plain"><li id="menu-tool"><a href="/gigi-net/tools">関連ツール</a></li><li id="menu-myhatena"><a href="http://www.hatena.ne.jp/my" title="Myはてな"><img src="https://www.hatena.ne.jp/users/gi/gigi-net/profile_s.gif" width="16" height="16" alt="gigi-net">Myはてな</a></li><li id="menu-mobile"><a href="http://hatenadiary.g.hatena.ne.jp/keyword/%e3%83%a1%e3%83%bc%e3%83%ab%e3%81%a7%e6%97%a5%e8%a8%98%e3%82%92%e6%9b%b8%e3%81%8f">メールで投稿</a></ul>
+
+
+
+
+
+
+
+<div id="size-checker">&nbsp;</div>
+</div><!-- sidebar-->
+
+<div id="footer">
+Copyright (C) 2001-2010 hatena. All Rights Reserved.
+</div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var firstTracker = _gat._getTracker("UA-441387-39");
+firstTracker._initData();
+firstTracker._trackPageview();
+var secondTracker = _gat._getTracker("UA-7855606-1");
+secondTracker._setDomainName(".hatena.ne.jp");
+secondTracker._initData();
+secondTracker._trackPageview();
+} catch(err) {}
+</script>
+
+</div><!-- body -->
+</div><!-- container -->
+
+<script type="text/javascript"><!--
+if (window.LocalStorage && LocalStorage.isUsable()) {
+document.write(
+'<div id="storageswf-container" style="background-color:#DDDDDD; border:2px solid #999999; padding:5;"><div style="text-align:left; width:215; font-weight:bold; font-size:11pt"><img id="backup-setting-close" src="/images/admin/backup-close.gif" style="float:right; cursor:pointer" />ダイアリー保存容量設定</div>'
+);
+LocalStorage.writeFlashTag('storageswf', '/tools/storage.swf');
+document.write(
+'<div class="note" style="width:215; font-size:10pt; text-align:left">このコンピュータに保存するデータの最大容量を設定します。<br />古いバックアップデータは自動的に削除されますが、頻繁に容量が不足する場合は最大容量を増やしてください。</div></div>'
+);
+}
+//new DiaryBackup('backup');
+//-->
+</script>
+
+</body>
+
+</html>
